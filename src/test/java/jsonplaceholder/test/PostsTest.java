@@ -30,7 +30,7 @@ public class PostsTest {
     @Test
     public void getUsers(){
         PostsAdapter postsAdapter = new PostsAdapter();
-        postsAdapter.getUsers(propertyReader.getProperty("END_URI_USERS"),propertyReader.getIntProperty("status200") );
+        postsAdapter.getUsers(5,propertyReader.getProperty("END_URI_USERS"),propertyReader.getIntProperty("status200") );
 
     }
 
