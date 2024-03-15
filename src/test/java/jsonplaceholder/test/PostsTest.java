@@ -3,6 +3,7 @@ package jsonplaceholder.test;
 import com.github.javafaker.Faker;
 import framework.PropertyReader;
 import jsonplaceholder.adapters.PostsAdapter;
+import jsonplaceholder.adapters.UserAdapter;
 import jsonplaceholder.pojo.PostsPojo;
 import org.testng.annotations.Test;
 
@@ -16,20 +17,15 @@ public class PostsTest {
 
     }
     @Test
-    public void get99Post(){
+    public void getPost(){
         PostsAdapter postsAdapter = new PostsAdapter();
-        postsAdapter.get99Post(99,propertyReader.getProperty("END_URI_POSTS"),propertyReader.getIntProperty("status200") );
-
-    }
-    @Test
-    public void get150Post(){
-        PostsAdapter postsAdapter = new PostsAdapter();
-        postsAdapter.get99Post(150,propertyReader.getProperty("END_URI_POSTS"),propertyReader.getIntProperty("status200") );
+        postsAdapter.getPost(99,propertyReader.getProperty("END_URI_POSTS"),propertyReader.getIntProperty("status200") );
+        postsAdapter.getPost(150,propertyReader.getProperty("END_URI_POSTS"),propertyReader.getIntProperty("status200") );
 
     }
     @Test
     public void getUsers(){
-        PostsAdapter postsAdapter = new PostsAdapter();
+        UserAdapter postsAdapter = new UserAdapter();
         postsAdapter.getUsers(5,propertyReader.getProperty("END_URI_USERS"),propertyReader.getIntProperty("status200") );
 
     }

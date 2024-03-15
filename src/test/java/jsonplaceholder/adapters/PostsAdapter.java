@@ -26,7 +26,7 @@ public class PostsAdapter extends BaseAdapter {
         }
     }
 
-    public void get99Post(int post_id, String uri, int status) {
+    public void getPost(int post_id, String uri, int status) {
         String response = get(uri, status);
         try {
             JsonParser jsonParser = new JsonParser();
@@ -40,18 +40,7 @@ public class PostsAdapter extends BaseAdapter {
 
     }
 
-    public void getUsers(int user_id,String uri, int status) {
-        String response = get(uri, status);
-        JsonParser jsonParser = new JsonParser();
-        JsonArray jsonArray = (JsonArray) jsonParser.parse(response);
-        System.out.println("Number of posts " + jsonArray.size());
-        for (int i = 0; i < jsonArray.size(); i++) {
-            JsonObject jsonObject = jsonArray.get(i).getAsJsonObject();
-            Assert.assertTrue(jsonObject.get("id").getAsInt() - i == 1, "404 error");
-        }
-        JsonObject jsonObject = jsonArray.get(user_id-1).getAsJsonObject();
-        System.out.println("Fiffth element is: " + jsonObject);
-    }
+
     public void postPost(PostsPojo postsPojo, String uri, int status) {
         String response = post(gson.toJson(postsPojo), uri, status);
         JsonObject jsonObject = parseString(response).getAsJsonObject();
